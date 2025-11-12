@@ -1,79 +1,57 @@
-# 🏆 God Level Coder Challenge
+# 📊 Nola - Plataforma de Análise de Dados para Restaurantes
 
-## O Problema
+Nola é uma plataforma de Business Intelligence projetada para capacitar donos de restaurantes a explorar e visualizar seus dados operacionais de forma intuitiva. A solução oferece dashboards interativos e a capacidade de criar análises personalizadas, transformando dados brutos de vendas, produtos e clientes em insights acionáveis.
 
-Donos de restaurantes gerenciam operações complexas através de múltiplos canais (presencial, iFood, Rappi, app próprio). Eles têm dados de **vendas, produtos, clientes e operações**, mas não conseguem extrair insights personalizados para tomar decisões de negócio.
+## 🚀 Origem do Projeto
 
-Ferramentas como Power BI são genéricas demais. Dashboards fixos não respondem perguntas específicas. **Como empoderar donos de restaurantes a explorarem seus próprios dados?**
+Este projeto foi desenvolvido como solução para o desafio **God Level Coder**, que propôs a criação de uma ferramenta de BI específica para o setor de food service, permitindo que gestores de restaurantes pudessem tomar decisões mais estratégicas com base em seus próprios dados.
 
-## Seu Desafio
+## 🛠️ Tecnologias Utilizadas
 
-Construa uma solução que permita donos de restaurantes **criarem suas próprias análises** sobre seus dados operacionais. Pense: "Power BI para restaurantes" ou "Metabase específico para food service".
+A plataforma foi construída utilizando uma arquitetura de microsserviços, com as seguintes tecnologias:
 
-### O que esperamos
+- **Frontend:** [Vue.js](https://vuejs.org/)
+- **Backend:** [Python](https://www.python.org/) com [FastAPI](https://fastapi.tiangolo.com/)
+- **Banco de Dados:** [PostgreSQL](https://www.postgresql.org/)
+- **Cache:** [Redis](https://redis.io/)
+- **Containerização:** [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/)
+- **Geração de Dados:** Script em Python para popular o banco com dados realistas.
 
-Uma plataforma onde um dono de restaurante possa:
-- Visualizar métricas relevantes (faturamento, produtos mais vendidos, horários de pico)
-- Criar dashboards personalizados sem escrever código
-- Comparar períodos e identificar tendências
-- Extrair valor de dados complexos de forma intuitiva
+## 🏁 Como Executar o Projeto (Getting Started)
 
-### O que você recebe
+Para executar o projeto localmente, você precisará ter o Docker e o Docker Compose instalados.
 
-- Script para geração de **500.000 vendas** de 6 meses (50 lojas, múltiplos canais)
-- Schema PostgreSQL com dados realistas de operação
-- Liberdade total de tecnologias e arquitetura
-- Liberdade total no uso de AI e ferramentas de geração de código
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/lucasvieira94/nola-god-level.git
+    cd nola-god-level
+    ```
 
-### O que você entrega
+2.  **Construa e suba os containers:**
+    O comando a seguir irá construir as imagens, iniciar os serviços (PostgreSQL, Redis, Backend, Frontend) e gerar os dados de exemplo.
+    ```bash
+    docker-compose up --build -d
+    ```
+    *Aguarde alguns minutos para que o script `data-generator` popule o banco de dados com aproximadamente 500.000 registros de vendas.*
 
-1. Uma solução funcionando (deployed ou local) - com frontend e backend adequados ao banco fornecido
-2. Documentação de decisões arquiteturais
-3. Demo em vídeo (5-10 min) explicando sua abordagem - mostrando a solução funcional e deployada / rodando na sua máquina, apresentando-a no nível de detalhes que julgar relevante
-4. Código bem escrito e testável
+3.  **Acesse a aplicação:**
+    - **Frontend:** [http://localhost:3000](http://localhost:3000)
+    - **Backend (API Docs):** [http://localhost:8000/docs](http://localhost:8000/docs)
 
-## 📚 Documentação
+4.  **Para parar a aplicação:**
+    ```bash
+    docker-compose down
+    ```
 
-| Documento | Descrição |
-|-----------|-----------|
-| [PROBLEMA.md](./PROBLEMA.md) | Contexto detalhado, persona Maria, dores do usuário |
-| [DADOS.md](./DADOS.md) | Schema completo, padrões, volume de dados |
-| [AVALIACAO.md](./AVALIACAO.md) | Como avaliaremos sua solução |
-| [FAQ.md](./FAQ.md) | Perguntas frequentes |
-| [QUICKSTART.md](./QUICKSTART.md) | Tutorial rápido para começar o desafio |
+## 📂 Estrutura do Projeto
 
-## Avaliação
+O repositório está organizado da seguinte forma:
 
-**Não** estamos avaliando se você seguiu instruções específicas.  
-**Sim** estamos avaliando:
-- Pensamento arquitetural e decisões técnicas
-- Qualidade da solução para o problema do usuário
-- Performance e escala
-- UX e usabilidade
-- Metodologia de trabalho e entrega
-
-
-## Prazo
-
-Até 03/11/2025 às 23:59.
-
-## Submissão
-
-Mande um email para gsilvestre@arcca.io
-
-Com:
-- Link do repositório (público ou nos dê acesso)
-- Link do vídeo demo (5-10 min)
-- Link do deploy (opcional mas valorizado)
-- Documento de decisões arquiteturais
-
-## Suporte
-- 💬 **Discord**: https://discord.gg/z8pVH26j
-- 📧 **Email**: gsilvestre@arcca.io
-- 📧 **Telefone**: (11) 93016 - 3509
+- **/backend:** Contém a aplicação FastAPI (Python) que serve a API.
+- **/frontend:** Contém a aplicação Vue.js que consome a API e renderiza os dashboards.
+- **/database-schema.sql:** Script SQL para a criação do schema do banco de dados.
+- **/generate_data.py:** Script Python para geração de dados de teste.
+- **docker-compose.yml:** Orquestra a inicialização de todos os serviços.
 
 ---
-
-**Não queremos que você adivinhe o que queremos. Queremos ver como VOCÊ resolveria este problema.**
-
 _Nola • 2025_
