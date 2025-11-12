@@ -1,0 +1,28 @@
+{
+  "name": "nola-analytics-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vuepic/vue-datepicker": "^8.5.0",
+    "axios": "^1.6.2",
+    "chart.js": "^4.4.1",
+    "core-js": "^3.34.0",
+    "vue": "^3.3.9",
+    "vue-chartjs": "^5.3.0",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/eslint-parser": "^7.23.3",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "eslint": "^8.55.0",
+    "eslint-plugin-vue": "^9.19.2"
+  }
+}
