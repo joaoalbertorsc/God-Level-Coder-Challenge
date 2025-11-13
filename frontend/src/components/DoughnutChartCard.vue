@@ -24,6 +24,21 @@ import {
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
+defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: false
+  },
+  chartData: {
+    type: Object,
+    default: () => null
+  }
+});
+
 const chartOptions = computed(() => ({
   responsive: true,
   maintainAspectRatio: false,
