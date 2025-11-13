@@ -30,14 +30,14 @@
 
     <div v-else>
       <div v-if="topPerformer && bottomPerformer" class="summary-stats">
-        <div class="summary-card-wrapper">
+        <div class="summary-card-wrapper best-performer-summary">
           <StatCard 
             :title="`Melhor Performance (${translatedDimension})`" 
             :value="topPerformer.dimension_name" 
             :subValue="`${(topPerformer.average_delivery_seconds / 60).toFixed(1)} min`"
           />
         </div>
-        <div class="summary-card-wrapper">
+        <div class="summary-card-wrapper worst-performer-summary">
           <StatCard 
             :title="`Pior Performance (${translatedDimension})`" 
             :value="bottomPerformer.dimension_name" 
@@ -47,12 +47,12 @@
       </div>
 
       <div v-if="performanceData.length > 0" class="rankings-container">
-        <div class="ranking-table">
-          <h3>Top 10 Melhores Performances</h3>
+        <div class="ranking-table best-performers">
+          <h3>👍 Top 10 Melhores Performances</h3>
           <DataTable :columns="rankingColumns" :data="bestPerformers" />
         </div>
-        <div class="ranking-table">
-          <h3>Top 10 Piores Performances</h3>
+        <div class="ranking-table worst-performers">
+          <h3>👎 Top 10 Piores Performances</h3>
           <DataTable :columns="rankingColumns" :data="worstPerformers" />
         </div>
       </div>
@@ -229,6 +229,16 @@ onMounted(loadPerformanceData);
 .summary-card-wrapper {
   flex: 1 1 400px;
   min-width: 300px;
+  border-radius: 12px; /* Ensure wrapper has radius for border */
+  padding: 2px; /* Optional: to prevent content from touching the border */
+}
+
+.best-performer-summary {
+  border: 4px solid #42b983;
+}
+
+.worst-performer-summary {
+  border: 4px solid #dc3545;
 }
 
 .filter-bar {
@@ -279,8 +289,34 @@ onMounted(loadPerformanceData);
   margin-bottom: 30px;
 }
 
+.ranking-table {
+  flex: 1 1 45%;
+  min-width: 400px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 .ranking-table h3 {
   text-align: center;
   margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.ranking-table.best-performers {
+  border-top: 4px solid #42b983;
+}
+
+.ranking-table.worst-performers {
+  border-top: 4px solid #dc3545;
+}
+
+.best-performers h3 {
+  color: #42b983;
+}
+
+.worst-performers h3 {
+  color: #dc3545;
 }
 </style>
