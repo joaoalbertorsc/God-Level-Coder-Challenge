@@ -68,25 +68,16 @@
       </div>
 
       <div v-else class="side-by-side-charts">
-        <div class="chart-container">
-          <div v-if="chartData">
-            <LineChart :chartData="chartData" />
-          </div>
-          <div v-else class="no-data-message">
-            <p>Nenhum dado de tendência disponível para o período selecionado.</p>
-          </div>
-        </div>
-
-        <div class="doughnut-chart-container">
-          <DoughnutChartCard 
-            v-if="doughnutChartData"
-            title="Composição por Categoria"
-            :chartData="doughnutChartData"
-          />
-          <div v-else class="no-data-message">
-            <p>Nenhum dado de composição disponível para o período selecionado.</p>
-          </div>
-        </div>
+        <LineChartCard
+          class="line-chart-container"
+          title="Evolução do Ticket Médio"
+          :chartData="chartData"
+        />
+        <DoughnutChartCard
+          class="doughnut-chart-container"
+          title="Composição por Categoria"
+          :chartData="doughnutChartData"
+        />
       </div>
     </div>
 
@@ -97,10 +88,10 @@
 import { ref, onMounted, computed } from 'vue';
 import { getTicketTrend, getSalesOverview, getTicketComposition } from '../services/api';
 import CustomDatepicker from '../components/CustomDatepicker.vue';
-import LineChart from '../components/LineChart.vue';
 import StatCard from '../components/StatCard.vue';
 import BulletChartCard from '../components/BulletChartCard.vue';
 import DoughnutChartCard from '../components/DoughnutChartCard.vue';
+import LineChartCard from '../components/LineChartCard.vue';
 import { formatDateForDisplay } from '../utils/formatters';
 
 const loading = ref(false);
@@ -400,12 +391,12 @@ onMounted(() => {
   display: flex;
   gap: 20px;
   margin-top: 20px;
+  align-items: stretch;
 }
 
-.chart-container {
+.line-chart-container {
   flex: 2;
   min-width: 0;
-  height: 150px; 
 }
 
 .doughnut-chart-container {
