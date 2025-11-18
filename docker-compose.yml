@@ -3,7 +3,7 @@ services:
     image: postgres:15
     container_name: godlevel-db
     environment:
-      POSTGRES_DB: challenge_db
+      POSTGRES_DB: god-level-challenge
       POSTGRES_USER: challenge
       POSTGRES_PASSWORD: challenge_2024
     ports:
@@ -12,7 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./database-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U challenge -d challenge_db"]
+      test: ["CMD-SHELL", "pg_isready -U challenge -d god-level-challenge"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -36,10 +36,11 @@ services:
       redis:
         condition: service_started
     environment:
-      DATABASE_URL: "postgresql://challenge:challenge_2024@postgres:5432/challenge_db"
+      DATABASE_URL: "postgresql://challenge:challenge_2024@postgres:5432/god-level-challenge"
       REDIS_URL: "redis://redis:6379"
     volumes:
-      - ./backend:/app # Add volume for backend hot-reloading
+      - ./backend:/app
+      - /app/node_modules
 
   frontend:
     build:
@@ -53,8 +54,8 @@ services:
     environment:
       - VUE_APP_API_URL=http://localhost:8000
     volumes:
-      - ./frontend:/app # This is the magic line for hot-reloading
-      # REMOVED: - /app/node_modules # This was hiding the installed node_modules
+      - ./frontend:/app
+      - /app/node_modules
 
   data-generator:
     build:
@@ -65,7 +66,7 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://challenge:challenge_2024@postgres:5432/challenge_db
+      DATABASE_URL: postgresql://challenge:challenge_2024@postgres:5432/god-level-challenge
     command: >
       sh -c "
         echo 'Waiting for database to be ready...' &&
