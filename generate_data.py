@@ -510,7 +510,7 @@ def generate_single_sale(sale_time, store_id, channel, customer_id, products, it
         'customer_name': fake.name() if not customer_id else None,
         'channel_id': channel['id'],
         'created_at': sale_time,
-        'status': status,
+        'sale_status_desc': status,
         'total_items_value': total_items_value,
         'discount': discount,
         'discount_reason': discount_reason,
@@ -534,7 +534,7 @@ def insert_sales_batch(cursor, sales_batch, items, option_groups):
     # Insert sales
     sales_data = [(
         s['store_id'], s['customer_id'], s['channel_id'],
-        s['customer_name'], s['created_at'], s['status'],
+        s['customer_name'], s['created_at'], s['sale_status_desc'],
         Decimal(str(s['total_items_value'])),
         Decimal(str(s['discount'])),
         Decimal(str(s['increase'])),
