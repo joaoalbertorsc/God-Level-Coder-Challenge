@@ -6,6 +6,15 @@ Nola é uma plataforma de Business Intelligence projetada para capacitar donos d
 
 Este projeto foi desenvolvido como solução para o desafio **God Level Coder**, que propôs a criação de uma ferramenta de BI específica para o setor de food service, permitindo que gestores de restaurantes pudessem tomar decisões mais estratégicas com base em seus próprios dados.
 
+<img width="1919" height="875" alt="desafio-god-level-nola (8)" src="https://github.com/user-attachments/assets/76e17566-83f6-46b4-9bc3-be7888043d2e" />
+<img width="1919" height="873" alt="desafio-god-level-nola (7)" src="https://github.com/user-attachments/assets/11e6914c-f08f-43e1-a602-ef6f2792b008" />
+<img width="1919" height="869" alt="desafio-god-level-nola (6)" src="https://github.com/user-attachments/assets/83ec1686-4527-44b9-b456-24f67dc6a152" />
+<img width="1919" height="874" alt="desafio-god-level-nola (5)" src="https://github.com/user-attachments/assets/6a164e2a-9a21-495a-8e19-1721cd74bb5e" />
+<img width="1919" height="874" alt="desafio-god-level-nola (4)" src="https://github.com/user-attachments/assets/49e22fe2-0e7e-4b75-ab33-11fbaed60667" />
+<img width="1919" height="871" alt="desafio-god-level-nola (3)" src="https://github.com/user-attachments/assets/c7ee8764-ad55-417f-84ed-229e1b3675e4" />
+<img width="1919" height="871" alt="desafio-god-level-nola (2)" src="https://github.com/user-attachments/assets/2015afb6-7f34-4fa5-a85f-66f89050a6bd" />
+<img width="1919" height="872" alt="desafio-god-level-nola (1)" src="https://github.com/user-attachments/assets/cc4c94c9-4c6d-49d1-9697-6d08f8869d13" />
+
 ## 🛠️ Tecnologias Utilizadas
 
 A plataforma foi construída utilizando uma arquitetura de microsserviços, com as seguintes tecnologias:
